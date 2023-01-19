@@ -12,4 +12,6 @@ class Post < ApplicationRecord
   def return_most_recent_comment
     comments.last(5)
   end
+
+  private :post_counter_update
 end
