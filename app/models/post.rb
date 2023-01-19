@@ -8,4 +8,8 @@ class Post < ApplicationRecord
   def post_counter_update
     author.increment!(:posts_counter)
   end
+
+  def return_most_recent_comment
+    comments.last(5)
+  end
 end
