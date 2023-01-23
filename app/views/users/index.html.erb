@@ -1,0 +1,24 @@
+<div class=title>
+  <h3>Welcome to Blog App</h3>
+</div>
+
+<h4> you are logged in as: <%= current_user.email %></h4>
+<div class=create_post>
+  <%= link_to "Create New Post", new_user_post_path(current_user) %>
+</div>
+
+<% @users.each do |user| %>
+  <%= link_to user do %>
+    <div>
+      <div class=box>
+        <img src="<%= user.photo%>", class: 'img'>
+        <div class=user-box>
+          <%= user.name %><br>
+          <div class=right>
+          number of posts: <%= user.posts_counter %><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
