@@ -1,0 +1,23 @@
+<div class>
+  <div class=box>
+    <img src="<%= @user.photo%>"'>
+    <div class=user-box>
+      <%= @user.name %><br>
+      number of posts: <%= @user.posts_counter %><br>
+    </div>
+  </div>
+</div>
+<div class=bio>
+  Bio<br>
+  <br>
+  <%= @user.bio %>
+</div>
+<% @posts.each_with_index do |post, idx| %>
+<%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
+   <% end %>
+<% end %>
+<% unless @posts.length == 0 %>
+  <div class="show-all-posts">
+    <%= link_to "See all posts", user_posts_path(user_id: @user.id), class: "show-posts-btn" %>
+  </div>
+<% end %>
