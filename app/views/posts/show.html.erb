@@ -12,9 +12,6 @@
       <br>
     </div>
   </div>
-    <div class= "posts-del-btn">
-      <%= link_to 'Delete', user_post_path(user_id:@user.id, id: @post.id), "data-turbo-method": :delete, class: 'del-post' %>
-  </div>
   <%= @post.text %>
 
 </div>
@@ -24,14 +21,7 @@
     <% @post.comments.includes(:author).each do |comment| %>
       <%= comment.author.name %>:
       <%= comment.text %><br>
-      <%= link_to 'Delete', user_post_comment_path(post_id: @post.id, id: comment.id), "data-turbo-method": :delete, class: 'del-comment' %>
       <br>
     <% end %>
   </div>
 <% end %>
-<button>
-  <%= link_to 'Add your comment', new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id) %>
-</button>
-<div class=right>
-  <%= render 'likes/form' %>
-</div>
