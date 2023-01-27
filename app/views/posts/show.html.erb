@@ -25,3 +25,7 @@
     <% end %>
   </div>
 <% end %>
+<button>
+  <%= link_to 'Add your comment', new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id) %>
+</button>
+<%= render 'likes/form' %>
