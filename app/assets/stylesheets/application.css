@@ -1,15 +1,71 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  animation: slide-in 0.8s ease-in-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.title {
+  display: flex;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  background: gold;
+  width: 100%;
+  z-index: 3;
+  color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+a {
+  width: 90%;
+}
+
+.box {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+img {
+  width: 4rem;
+  flex: 1;
+}
+
+.user-box {
+  flex: 2;
+}
+
+.right {
+  position: absolute;
+  bottom: 18px;
+  right: 14px;
+}
