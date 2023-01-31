@@ -1,31 +1,40 @@
 <div class=box>
-  <img src="<%= @user.photo%>", class: 'img'>
+  <img src="<%= @user.photo%>" , class: 'img'>
   <div class=user-box>
-    <h2><%= @user.name %></h2>
-    <div class=right>
-      number of posts: <%= @user.posts_counter %>
-    </div>
+    <h2>
+      <%= @user.name %>
+    </h2>
+    <% cache do %>
+      <% @posts.each do |post| %>
+        <%= post.title %>
+          <%= post.body %>
+            <% end %>
+              <% end %>
+                <div class=right>
+                  number of posts: <%= @user.posts_counter %>
+                </div>
   </div>
 </div>
+
 <% @posts_all.each_with_index do |post, idx| %>
   <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
     <div class=rectangle>
       Post #<%= idx+1 %><br>
-      <br>
-      <%= post.text %><br>
-      <br>
-      <div class=right>
-        comments: <%= post.comments_counter %>
-        likes: <%= post.likes_counter %><br>
-      </div>
-    </div>
-  <% end %>
-  <% unless post.comments.length == 0 %>
-    <div class=rectangle>
-      <% post.most_recent_comments.includes(:author).each do |comment| %>
-        <%= comment.author.name %>: <%= comment.text %><br>
         <br>
-      <% end %>
+        <%= post.text %><br>
+          <br>
+          <div class=right>
+            comments: <%= post.comments_counter %>
+              likes: <%= post.likes_counter %><br>
+          </div>
     </div>
-  <% end %>
-<% end %>
+    <% end %>
+      <% unless post.comments.length==0 %>
+        <div class=rectangle>
+          <% post.most_recent_comments.includes(:author).each do |comment| %>
+            <%= comment.author.name %>: <%= comment.text %><br>
+                <br>
+                <% end %>
+        </div>
+        <% end %>
+          <% end %>
