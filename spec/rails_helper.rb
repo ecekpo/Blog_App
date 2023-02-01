@@ -62,5 +62,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: { binary: "/path/to/chrome" })
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: { binary: '/path/to/chrome' })
 end
