@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'User Details Page', type: :system do
   describe 'show page' do
     before(:each) do
-      @user_one = User.create(name: 'Thomas', photo: 'https://cf.shopee.ph/file/addd63d9096e591237f4a80b42b52979', bio: 'Mob from Small Heath')
+      @user_one = User.create(name: 'Great', photo: 'https://cf.shopee.ph/file/addd63d9096e591237f4a80b42b52979', bio: 'Peter from Ken Town')
       @post_one = Post.create(author: @user_one, title: 'Hello One', text: 'This is my first post')
       @comment_one = Comment.create(author: @user_one, post: @post_one, text: 'This is a sample text')
     end
