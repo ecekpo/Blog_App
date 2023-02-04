@@ -1,30 +1,34 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find_by(id: params[:user_id])
-    @posts_all = @user.posts.includes(:comments)
+    user_id = params[:user_id]
+    @user = User.includes(posts: { comments: [:author] }).find(user_id)
+    @posts = @user.posts
+    @recent_user = current_user
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
-    @user = User.find(params[:user_id])
+    user_id = params[:user_id]
+    post_id = params[:id]
+    @user = User.find(user_id)
+    @post = Post.find(post_id)
+    @comments = Comment.where(post_id:)
+    @recent_user = current_user
   end
 
   def new
     @post = Post.new
-    @user = current_user
   end
 
   def create
-    @user = current_user
-    @post = @user.posts.new(title: post_params[:title], text: post_params[:text], comments_counter: 0, likes_counter: 0)
+    user = current_user
+    puts user
+    @post = Post.new(
+      title: params[:post][:title],
+      text: params[:post][:text],
+      author: user
+    )
     return unless @post.save
 
-    redirect_to @user
-  end
-
-  private
-
-  def post_params
-    params.require(:post).permit(:title, :text)
+    redirect_to user_posts_path
   end
 end

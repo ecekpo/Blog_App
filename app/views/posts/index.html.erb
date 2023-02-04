@@ -1,31 +1,28 @@
-<div class=box>
-  <img src="<%= @user.photo%>", class: 'img'>
-  <div class=user-box>
-    <h2><%= @user.name %></h2>
-    <div class=right>
-      number of posts: <%= @user.posts_counter %>
-    </div>
-  </div>
-</div>
-<% @posts_all.each_with_index do |post, idx| %>
-  <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
-    <div class=rectangle>
-      Post #<%= idx+1 %><br>
-      <br>
-      <%= post.text %><br>
-      <br>
-      <div class=right>
-        comments: <%= post.comments_counter %>
-        likes: <%= post.likes_counter %><br>
+<%= render partial: "partials/user", locals: {user: @user} %>
+
+<section class="posts-section">
+  <h3>Posts</h3>
+  <div class="posts-container">
+    <ul class="posts-list">
+    <% @posts.each do |post| %>
+      <div class="post">
+      <%= render partial: "partials/post", locals: {post: post} %>
+      <h4>Comments: </h4>
+      <ul class="comments-list">
+        <% post.recent_comments.each do |comment| %> 
+          <li>
+          <%= render partial: "partials/comment", locals: {comment: comment} %>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= render partial: "partials/comment_form", locals: {post: post, author: @recent_user, user_id: @user.id} %>
+      
       </div>
-    </div>
-  <% end %>
-  <% unless post.comments.length == 0 %>
-    <div class=rectangle>
-      <% post.most_recent_comments.includes(:author).each do |comment| %>
-        <%= comment.author.name %>: <%= comment.text %><br>
-        <br>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
+    <% end %>
+    </ul>
+    <%= link_to new_user_post_path(@user.id) do %>
+    <button>Create new Post</button>
+    <% end %>
+  </div>
+</section>

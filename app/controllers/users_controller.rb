@@ -1,10 +1,11 @@
-class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
+class Comment < ApplicationRecord
+  after_create :update_comments_counter
 
-  def show
-    @user = User.find(params[:id])
-    @posts = @user.most_recent_3_posts
+  belongs_to :author, class_name: 'User', foreign_key: :author_id
+  belongs_to :post
+
+  def update_comments_counter
+    post_id = post.id
+    Post.increment_counter(:comments_counter, post_id)
   end
 end
