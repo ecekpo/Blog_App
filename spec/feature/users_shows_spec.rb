@@ -47,4 +47,4 @@ RSpec.describe 'User Details Page', type: :feature do
       expect(page).to have_current_path user_posts_path(@user_one.id)
     end
   end
-end 
+end

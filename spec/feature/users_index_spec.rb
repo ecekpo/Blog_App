@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'User Page', type: :feature do
   before(:each) do
-    @user_one = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', 
-    bio: 'Teacher from Mexico.')
+    @user_one = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                            bio: 'Teacher from Mexico.')
     @user_two = User.create(name: 'Polly',
                             photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYkbpibWnxXGEOHY7OJNsVhPWPhtp4UTTLiP9mzxavaJWM43-BPm_f46GvSGexphkvuvU&usqp=CAU', bio: 'Student.')
-                            User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
+    User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                bio: 'Teacher from Poland.')
     visit users_path
   end
 
