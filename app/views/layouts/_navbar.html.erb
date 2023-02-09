@@ -1,0 +1,11 @@
+<header>
+<nav>
+   <h1>Welcome to BLOG APP</h1>
+   <p>
+   you are logged in as: <%= current_user.email %>
+   </p>
+   <% if user_signed_in? %>
+   <%= button_to 'SIGN OUT', destroy_user_session_path, method: :delete, data: {turbo: false} %>
+   <% end %>
+   </nav>
+   </header>
