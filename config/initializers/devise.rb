@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# devise :database_authenticatable, :registerable, :confirmable, :recoverable, stretches: 13
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'bcdc2a07acc934dc14297d46bd06705d7e61af0a1cd532969bbf50224ddf45f2d7ceabdbd10a34a5f20fa44c3775340d8aeffa155b91a9edb890306b49e8c875'
+  # config.secret_key = '824563925a90f3b6d041a02e0936ae0040326f8984f928c376416ee5e5d76f796a823f87a186c3d7f4d226db54ae62e4f22cebab1c11cdde8fb5752a63d4ea69'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'eaf4ea29efee00f2f7571d44f2d313e176da6c15f77a8e140a0b02cbe20edad3986afc1f6cbff414b97f3460f30b6f41838b6f41dcfbc998aec5c77f65ba1e00'
+  # config.pepper = '104583ac1ad9f8a12077cbeb8e02bdc215728782ecc2688d2b35480135e3e2556fc6974c1044a8baa411bf69f0f79a4be56d0906e1ea641399746910091769d5'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -244,7 +244,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = true
+  # config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
