@@ -78,4 +78,4 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "letter_opener", group: "development"
+gem 'letter_opener', group: 'development'
