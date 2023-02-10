@@ -100,6 +100,12 @@ To run tests, run the following command:
 - Twitter: [@ememcookey](https://twitter.com/ememcookey)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/emem-ekpo)
 
+👤 **soulemanou kunchiefuh babnou**
+
+- GitHub: [@soulemanou-software](https://https://github.com/soilemanou-software)
+- Twitter: [@soulemanou kunchiefuh babanou](https://twitter.com/souleamou-sofware)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/souleamnou-kunchiefuh-babanou)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
